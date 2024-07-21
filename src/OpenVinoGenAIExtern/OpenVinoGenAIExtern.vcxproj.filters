@@ -21,9 +21,18 @@
     <ClInclude Include="src\genai_common.h">
       <Filter>源文件</Filter>
     </ClInclude>
+    <ClInclude Include="include\ov_genai_generation_config.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ov_genai_common.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\genai_common.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ov_genai_generation_config.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

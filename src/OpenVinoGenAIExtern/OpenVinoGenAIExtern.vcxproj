@@ -134,10 +134,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\ov_genai_common.h" />
+    <ClInclude Include="include\ov_genai_generation_config.h" />
     <ClInclude Include="src\genai_common.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\genai_common.cpp" />
     <ClCompile Include="src\ov_genai_common.cpp" />
+    <ClCompile Include="src\ov_genai_generation_config.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
