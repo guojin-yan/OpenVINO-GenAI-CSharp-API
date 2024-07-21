@@ -9,7 +9,6 @@
  */
 
 #pragma once
-
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -133,7 +132,7 @@ typedef enum {
  * @param ov_status_e a status code.
  */
 OPENVINO_C_API(const char*)
-ov_get_error_info(ov_status_e status);
+ov_genai_get_error_info(ov_status_e status);
 
 /**
  * @brief free char
@@ -141,12 +140,12 @@ ov_get_error_info(ov_status_e status);
  * @param content The pointer to the char to free.
  */
 OPENVINO_C_API(void)
-ov_free(const char* content);
+ov_genai_free(const char* content);
 
 /**
  * @brief Get the last error msg.
  * @ingroup ov_base_c_api
  */
 OPENVINO_C_API(const char*)
-ov_get_last_err_msg();
+ov_genai_get_last_err_msg();
 

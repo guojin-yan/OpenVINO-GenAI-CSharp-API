@@ -3,6 +3,7 @@
 //
 #include "ov_genai_common.h"
 
+#include "genai_common.h"
 /**
  * @variable global value for error info.
  * Don't change its order.
@@ -26,7 +27,7 @@ char const* error_infos[] = { "success",
                              "not implement in c method",
                              "unknown exception" };
 
-const char* ov_get_error_info(ov_status_e status) {
+const char* ov_genai_get_error_info(ov_status_e status) {
     auto index = -status;
     auto max_index = sizeof(error_infos) / sizeof(error_infos[0]) - 1;
     if (static_cast<size_t>(index) > max_index)
@@ -34,7 +35,7 @@ const char* ov_get_error_info(ov_status_e status) {
     return error_infos[index];
 }
 
-void ov_free(const char* content) {
+void ov_genai_free(const char* content) {
     if (content)
         delete[] content;
 }
