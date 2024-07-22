@@ -14,6 +14,7 @@
 #include <memory>
 
 #include "genai_common.h"
+#include <cstdarg>
 
 
 
@@ -39,3 +40,85 @@ ov_status_e ov_genai_generation_config_create(
     return ov_genai_generation_config_create_with_json("", generation_config);
 }
 
+
+ov_status_e ov_genai_generation_config_get_max_new_tokens(
+    const ov_genai_generation_config_t* generation_config,
+    size_t prompt_length, size_t* max_new_tokens) {
+    if (!generation_config || !max_new_tokens) {
+        return ov_status_e::INVALID_C_PARAM;
+    }
+    try {
+        if (prompt_length == 0) {
+            *max_new_tokens = generation_config->object->get_max_new_tokens();
+        }
+        else {
+            *max_new_tokens = generation_config->object->get_max_new_tokens(prompt_length);
+        }
+        
+    }
+    CATCH_OV_GENAI_EXCEPTIONS
+    return ov_status_e::OK;
+}
+
+
+bool ov_genai_generation_config_is_greedy_decoding(
+    const ov_genai_generation_config_t* generation_config) {
+    if (generation_config->object->is_greedy_decoding()) {
+        return true;
+    }
+    return false;
+}
+
+
+bool ov_genai_generation_config_is_beam_search(
+    const ov_genai_generation_config_t* generation_config) {
+    if (generation_config->object->is_beam_search()) {
+        return true;
+    }
+    return false;
+}
+
+bool ov_genai_generation_config_is_multinomial(
+    const ov_genai_generation_config_t* generation_config) {
+    if (generation_config->object->is_multinomial()) {
+        return true;
+    }
+    return false;
+}
+
+
+ov_status_e ov_genai_generation_config_update_generation_config(
+    const ov_genai_generation_config_t* generation_config, 
+    const size_t property_args_size, ...) {
+    if (!generation_config || property_args_size % 2 != 0) {
+        return ov_status_e::INVALID_C_PARAM;
+    }
+
+    try {
+        ov::AnyMap property = {};
+        va_list args_ptr;
+        va_start(args_ptr, property_args_size);
+        size_t property_size = property_args_size / 2;
+        for (size_t i = 0; i < property_size; i++) {
+            GET_PROPERTY_FROM_ARGS_LIST;
+        }
+        va_end(args_ptr);
+
+        generation_config->object->update_generation_config(property);
+    }
+    CATCH_OV_GENAI_EXCEPTIONS
+    return ov_status_e::OK;
+}
+
+
+ov_status_e validate(
+    const ov_genai_generation_config_t* generation_config) {
+    if (!generation_config) {
+        return ov_status_e::INVALID_C_PARAM;
+    }
+    try {
+        generation_config->object->validate();
+    }
+    CATCH_OV_GENAI_EXCEPTIONS
+    return ov_status_e::OK;
+}
