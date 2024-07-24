@@ -20,4 +20,4 @@
 #include "ov_genai_common.h"
 
 
-typedef struct ov_genai_tokenizer ov_genai_tokenizer_t
+typedef struct ov_genai_tokenizer ov_genai_tokenizer_t;
