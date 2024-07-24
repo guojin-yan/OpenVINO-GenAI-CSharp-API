@@ -141,14 +141,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\ov_genai_decoded_results.h" />
     <ClInclude Include="include\ov_genai_common.h" />
+    <ClInclude Include="include\ov_genai_encoded_results.h" />
     <ClInclude Include="include\ov_genai_generation_config.h" />
+    <ClInclude Include="include\ov_genai_llm_pipeline.h" />
+    <ClInclude Include="include\ov_genai_tokenizer.h" />
+    <ClInclude Include="include\ov_infer_request.h" />
     <ClInclude Include="src\genai_common.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\ov_genai_decoded_results.cpp" />
     <ClCompile Include="src\genai_common.cpp" />
     <ClCompile Include="src\ov_genai_common.cpp" />
+    <ClCompile Include="src\ov_genai_encoded_results.cpp" />
     <ClCompile Include="src\ov_genai_generation_config.cpp" />
+    <ClCompile Include="src\ov_genai_llm_pipeline.cpp" />
+    <ClCompile Include="src\ov_infer_request.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
