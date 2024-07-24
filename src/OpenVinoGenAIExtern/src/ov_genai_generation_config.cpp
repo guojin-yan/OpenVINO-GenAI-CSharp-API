@@ -3,7 +3,7 @@
 //
 
 /**
-* @file ov_genai_generation_config.c
+* @file ov_genai_generation_config.cpp
 * @brief This is a header file for the ov_genai_generation_config C API, which is a C wrapper for ov::genai::GenerationConfig.
 * @version 1.0
 * @author Yan Guojin guojin_yjs@cumt.edu.cn
@@ -538,4 +538,9 @@ ov_status_e ov_genai_generation_config_set_eos_token_id(const ov_genai_generatio
     }
     CATCH_OV_GENAI_EXCEPTIONS
         return ov_status_e::OK;
+}
+
+void ov_genai_generation_config_free(const ov_genai_generation_config_t* generation_config) {
+    if (generation_config)
+        delete generation_config;
 }

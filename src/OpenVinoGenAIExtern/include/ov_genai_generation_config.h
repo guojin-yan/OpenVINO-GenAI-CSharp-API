@@ -457,3 +457,12 @@ ov_genai_generation_config_get_eos_token_id(const ov_genai_generation_config_t* 
 OPENVINO_C_API(ov_status_e)
 ov_genai_generation_config_set_eos_token_id(const ov_genai_generation_config_t* generation_config,
     int64_t eos_token_id);
+
+
+/**
+ * @brief Free ov_genai_generation_config_t.
+ * @ingroup ov_genai_generation_config_c_api
+ * @param tensor A point to ov_genai_generation_config_t
+ */
+OPENVINO_C_API(void)
+ov_genai_generation_config_free(const ov_genai_generation_config_t* generation_config);
