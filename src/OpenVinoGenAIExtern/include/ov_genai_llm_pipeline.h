@@ -50,7 +50,7 @@ ov_genai_llm_pipeline_create_with_request(
 
 
 OPENVINO_C_API(ov_status_e)
-ov_genai_llm_pipeline_create_with_model_path(
+ov_genai_llm_pipeline_create_with_model_path_tokenizer(
 	ov_genai_llm_pipeline_t** llm_pipeline,
 	const char* model_path,
 	ov_genai_tokenizer_t* tokenizer,
