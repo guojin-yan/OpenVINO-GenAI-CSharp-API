@@ -44,6 +44,11 @@
 
 
 
+
+struct ov_infer_request {
+    std::shared_ptr<ov::InferRequest> object;
+};
+
 /**
  * @struct ov_tensor
  * @brief This is an interface of ov_tensor
