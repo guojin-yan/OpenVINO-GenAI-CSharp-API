@@ -16,7 +16,36 @@
 #include "genai_common.h"
 #include <cstdarg>
 
+ov::AnyMap generation_config_param_to_anymap(const generation_config_param_t param) {
+    ov::AnyMap config_map;
 
+    config_map["max_new_tokens"] = param.max_new_tokens;
+    config_map["max_length"] = param.max_length;
+    config_map["ignore_eos"] = param.ignore_eos;
+
+
+    config_map["num_beam_groups"] = param.num_beam_groups;
+    config_map["num_beams"] = param.num_beams;
+    config_map["diversity_penalty"] = param.diversity_penalty;
+    config_map["length_penalty"] = param.length_penalty;
+    config_map["num_return_sequences"] = param.num_return_sequences;
+    config_map["no_repeat_ngram_size"] = param.no_repeat_ngram_size;
+    config_map["stop_criteria"] = param.stop_criteria;
+
+
+
+    config_map["temperature"] = param.temperature;
+    config_map["top_p"] = param.top_p;
+    config_map["top_k"] = param.top_k;
+    config_map["do_sample"] = param.do_sample;
+    config_map["repetition_penalty"] = param.repetition_penalty;
+
+
+
+    config_map["eos_token_id"] = param.eos_token_id;
+
+    return config_map;
+}
 
 ov_status_e ov_genai_generation_config_create_with_json(
     const char* json_path,
@@ -89,21 +118,13 @@ bool ov_genai_generation_config_is_multinomial(
 
 ov_status_e ov_genai_generation_config_update_generation_config(
     const ov_genai_generation_config_t* generation_config, 
-    const size_t property_args_size, ...) {
-    if (!generation_config || property_args_size % 2 != 0) {
+    const generation_config_param_t* config_param) {
+    if (!generation_config || !config_param) {
         return ov_status_e::INVALID_C_PARAM;
     }
 
     try {
-        ov::AnyMap property = {};
-        va_list args_ptr;
-        va_start(args_ptr, property_args_size);
-        size_t property_size = property_args_size / 2;
-        for (size_t i = 0; i < property_size; i++) {
-            GET_PROPERTY_FROM_ARGS_LIST;
-        }
-        va_end(args_ptr);
-
+        ov::AnyMap property = generation_config_param_to_anymap(*config_param);
         generation_config->object->update_generation_config(property);
     }
     CATCH_OV_GENAI_EXCEPTIONS
