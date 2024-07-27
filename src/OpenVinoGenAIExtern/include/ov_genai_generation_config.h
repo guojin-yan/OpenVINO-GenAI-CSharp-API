@@ -28,6 +28,40 @@
  */
 typedef struct ov_genai_generation_config ov_genai_generation_config_t;
 
+typedef struct generation_config_param 
+{
+    enum class StopCriteria { EARLY, HEURISTIC, NEVER };
+    // Generic
+    size_t max_new_tokens = SIZE_MAX;
+    size_t max_length = SIZE_MAX;
+    bool ignore_eos = false;
+
+    // Beam search specific
+    size_t num_beam_groups = 1;
+    size_t num_beams = 1;
+    float diversity_penalty = 1.0f;
+    float length_penalty = 1.0f;
+    size_t num_return_sequences = 1;
+    size_t no_repeat_ngram_size = std::numeric_limits<size_t>::max();
+    StopCriteria stop_criteria = StopCriteria::HEURISTIC;
+
+    // Multinomial
+    float temperature = 1.0f;
+    float top_p = 1.0f;
+    size_t top_k = 50;
+    bool do_sample = false;
+    float repetition_penalty = 1.0f;
+
+    // EOS special token
+    int64_t eos_token_id = -1;
+};
+
+
+typedef struct generation_config_param generation_config_param_t;
+
+
+ov::AnyMap generation_config_param_to_anymap(const generation_config_param_t param);
+
 
 /**
  * @brief Constructs OpenVINO GenAI GenerationConfig instance by default.
@@ -68,7 +102,7 @@ ov_genai_generation_config_is_multinomial(const ov_genai_generation_config_t* ge
 
 OPENVINO_C_API(ov_status_e)
 ov_genai_generation_config_update_generation_config(const ov_genai_generation_config_t* generation_config, 
-    const size_t property_args_size, ...);
+    const generation_config_param_t* config_param);
 
 /**
  * @brief Checks that are no conflicting parameters, e.g. do_sample=true and num_beams > 1.
