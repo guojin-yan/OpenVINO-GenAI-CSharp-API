@@ -104,6 +104,15 @@ struct ov_genai_tokenizer {
     std::shared_ptr<ov::genai::Tokenizer> object;
 };
 
+/**
+* @struct ov_genai_tokenized_inputs
+* @brief  This is an interface of ov::genai::TokenizedInputs.
+* This class is used to tokenized inputs.
+*/
+struct ov_genai_tokenized_inputs {
+    std::shared_ptr<ov::genai::TokenizedInputs> object;
+};
+
 
 /**
  * @struct mem_stringbuf
