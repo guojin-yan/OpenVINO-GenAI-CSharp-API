@@ -148,6 +148,7 @@
     <ClInclude Include="include\ov_genai_llm_pipeline.h" />
     <ClInclude Include="include\ov_genai_tokenizer.h" />
     <ClInclude Include="include\ov_infer_request.h" />
+    <ClInclude Include="include\ov_tensor.h" />
     <ClInclude Include="src\genai_common.h" />
   </ItemGroup>
   <ItemGroup>
@@ -158,6 +159,7 @@
     <ClCompile Include="src\ov_genai_generation_config.cpp" />
     <ClCompile Include="src\ov_genai_llm_pipeline.cpp" />
     <ClCompile Include="src\ov_infer_request.cpp" />
+    <ClCompile Include="src\ov_tensor.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
