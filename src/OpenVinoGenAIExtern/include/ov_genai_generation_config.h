@@ -28,6 +28,11 @@
  */
 typedef struct ov_genai_generation_config ov_genai_generation_config_t;
 
+/**
+ * @struct generation_config_param
+ * @ingroup ov_genai_generation_config_c_api
+ * @brief Structure to keep generation config parameters.
+ */
 typedef struct generation_config_param 
 {
     enum class StopCriteria { EARLY, HEURISTIC, NEVER };
@@ -56,7 +61,11 @@ typedef struct generation_config_param
     int64_t eos_token_id = -1;
 };
 
-
+/**
+ * @struct generation_config_param_t
+ * @ingroup ov_genai_generation_config_c_api
+ * @brief Structure to keep generation config parameters.
+ */
 typedef struct generation_config_param generation_config_param_t;
 
 
