@@ -21,3 +21,5 @@
 
 
 typedef struct ov_genai_tokenizer ov_genai_tokenizer_t;
+
+typedef struct ov_genai_tokenized_inputs ov_genai_tokenized_inputs_t;
