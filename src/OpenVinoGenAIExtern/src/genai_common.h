@@ -114,6 +114,23 @@ struct ov_genai_tokenized_inputs {
 };
 
 
+
+/**
+ * @struct ov_string_array
+ * @ingroup ov_genai_llm_pipeline_c_api
+ * @brief String array structure.
+ */
+typedef struct {
+    char** string_array;
+    size_t size;
+} ov_genai_char_arrays;
+/**
+ * @brief Convert character array structure to string array.
+ * @param char_arrays The character array structure.
+ * @return The converted string array.
+*/
+std::vector<std::string> char_arrays_to_str_array(ov_genai_char_arrays char_arrays);
+
 /**
  * @struct mem_stringbuf
  * @brief This struct puts memory buffer to stringbuf.
@@ -160,3 +177,4 @@ struct mem_istream : virtual mem_stringbuf, std::istream {
 
 char* str_to_char_array(const std::string& str);
 void dup_last_err_msg(const char* msg);
+

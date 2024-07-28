@@ -2,6 +2,19 @@
 // SPDX-License-Identifier: Apache-2.0
 //
 #include "genai_common.h"
+
+
+std::vector<std::string> char_arrays_to_str_array(ov_genai_char_arrays char_arrays) 
+{
+    std::vector<std::string> strs;
+    for (int i = 0; i < char_arrays.size; ++i) 
+    {
+        strs.push_back(std::string(char_arrays.string_array[i]));
+    }
+    return strs;
+}
+
+
 char* str_to_char_array(const std::string& str) {
     std::unique_ptr<char> _char_array(new char[str.length() + 1]);
     char* char_array = _char_array.release();
