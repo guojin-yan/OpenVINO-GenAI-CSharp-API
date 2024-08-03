@@ -3,6 +3,14 @@
 //
 #include "genai_common.h"
 
+std::vector<std::string> char_arrays_to_str_array(const ov_genai_char_arrays_t inputs_array) {
+    std::vector<std::string> strs;
+    for (int i = 0; i < inputs_array.size; ++i)
+    {
+        strs.push_back(std::string(inputs_array.string_array[i]));
+    }
+    return strs;
+}
 
 char* str_to_char_array(const std::string& str) {
     std::unique_ptr<char> _char_array(new char[str.length() + 1]);

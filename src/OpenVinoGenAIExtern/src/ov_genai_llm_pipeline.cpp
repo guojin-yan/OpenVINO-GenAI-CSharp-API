@@ -11,20 +11,15 @@
 */
 
 #include "ov_genai_llm_pipeline.h"
+
+#include <cstdarg>
 #include <memory>
 
 #include "genai_common.h"
-#include <cstdarg>
 
 
-std::vector<std::string> char_arrays_to_str_array(const ov_genai_char_arrays_t inputs_array) {
-	std::vector<std::string> strs;
-	for (int i = 0; i < inputs_array.size; ++i)
-	{
-		strs.push_back(std::string(inputs_array.string_array[i]));
-	}
-	return strs;
-}
+
+
 
 ov_status_e ov_genai_llm_pipeline_create_with_model_path(
 	const char* model_path,

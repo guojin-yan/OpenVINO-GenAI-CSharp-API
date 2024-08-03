@@ -11,19 +11,17 @@
 */
 
 #pragma once
-#include "openvino/genai/generation_config.hpp"
-#include "openvino/genai/llm_pipeline.hpp"
-#include "openvino/genai/streamer_base.hpp"
-#include "openvino/genai/tokenizer.hpp"
-#include "openvino/genai/visibility.hpp"
-
+#include "genai_common.h"
 #include "ov_genai_common.h"
-#include "ov_infer_request.h"
-#include "ov_tensor.h"
 #include "ov_genai_decoded_results.h"
 #include "ov_genai_encoded_results.h"
 #include "ov_genai_generation_config.h"
+#include "ov_genai_tokenized_inputs.h"
 #include "ov_genai_tokenizer.h"
+
+#include "ov_infer_request.h"
+#include "ov_tensor.h"
+
 
 
 /**
@@ -32,18 +30,6 @@
  * @brief type define ov_genai_llm_pipeline_t from ov_genai_llm_pipeline
  */
 typedef struct ov_genai_llm_pipeline ov_genai_llm_pipeline_t;
-
-
-
-/**
- * @struct ov_string_array
- * @ingroup ov_genai_llm_pipeline_c_api
- * @brief String array structure.
- */
-typedef struct {
-	char** string_array;
-	size_t size;
-} ov_genai_char_arrays_t;
 
 
 typedef bool(__stdcall* ov_genai_streamer_callback_t)(std::string str);

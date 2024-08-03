@@ -114,14 +114,22 @@ struct ov_genai_tokenized_inputs {
 };
 
 
-
+/**
+ * @struct ov_string_array
+ * @ingroup ov_genai_llm_pipeline_c_api
+ * @brief String array structure.
+ */
+typedef struct {
+    char** string_array;
+    size_t size;
+} ov_genai_char_arrays_t;
 
 /**
  * @brief Convert character array structure to string array.
  * @param char_arrays The character array structure.
  * @return The converted string array.
 */
-
+std::vector<std::string> char_arrays_to_str_array(const ov_genai_char_arrays_t inputs_array);
 
 /**
  * @struct mem_stringbuf
