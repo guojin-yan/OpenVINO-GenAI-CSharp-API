@@ -71,9 +71,9 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)src/$(ProjectName)/include/;$(OPENVINO_PATH)/runtime/include;$(OPENVINO_PATH)/runtime/include/openvino;$(OPENVINO_PATH)/runtime/include/openvino/genai;$(IncludePath)</IncludePath>
+    <IncludePath>$(IncludePath)</IncludePath>
     <TargetName>openvino_genai_c</TargetName>
-    <LibraryPath>$(OPENVINO_PATH)\runtime\lib\intel64\Debug;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>$(SolutionDir)src/$(ProjectName)/include/;$(OPENVINO_PATH)/runtime/include;$(OPENVINO_PATH)/runtime/include/openvino;$(OPENVINO_PATH)/runtime/include/openvino/genai;$(IncludePath)</IncludePath>
@@ -121,7 +121,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>openvinod.lib;openvino_genaid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
