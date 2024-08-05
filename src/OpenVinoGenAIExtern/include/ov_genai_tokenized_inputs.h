@@ -14,7 +14,6 @@
 
 #include "genai_common.h"
 #include "ov_genai_common.h"
-#include "ov_genai_tokenizer.h"
 #include "ov_tensor.h"
 
 
