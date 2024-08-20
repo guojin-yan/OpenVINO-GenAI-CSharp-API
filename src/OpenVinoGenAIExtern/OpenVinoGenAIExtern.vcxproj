@@ -76,9 +76,9 @@
     <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)src/$(ProjectName)/include/;$(OPENVINO_PATH)/runtime/include;$(OPENVINO_PATH)/runtime/include/openvino;$(OPENVINO_PATH)/runtime/include/openvino/genai;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)src/$(ProjectName)/include/;$(OPENVINO_PATH)/include;$(OPENVINO_PATH)/include/openvino;$(OPENVINO_PATH)/include/openvino/genai;$(IncludePath)</IncludePath>
     <TargetName>openvino_genai_c</TargetName>
-    <LibraryPath>$(OPENVINO_PATH)\runtime\lib\intel64\Release;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(OPENVINO_PATH)\lib\intel64\Release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -130,7 +130,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;openvino_c_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
@@ -148,6 +148,7 @@
     <ClInclude Include="include\ov_genai_encoded_results.h" />
     <ClInclude Include="include\ov_genai_generation_config.h" />
     <ClInclude Include="include\ov_genai_llm_pipeline.h" />
+    <ClInclude Include="include\ov_genai_raw_perf_metrics.h" />
     <ClInclude Include="include\ov_genai_tokenized_inputs.h" />
     <ClInclude Include="include\ov_genai_tokenizer.h" />
     <ClInclude Include="include\ov_infer_request.h" />
@@ -161,6 +162,7 @@
     <ClCompile Include="src\ov_genai_encoded_results.cpp" />
     <ClCompile Include="src\ov_genai_generation_config.cpp" />
     <ClCompile Include="src\ov_genai_llm_pipeline.cpp" />
+    <ClCompile Include="src\ov_genai_raw_perf_metrics.cpp" />
     <ClCompile Include="src\ov_genai_tokenized_inputs.cpp" />
     <ClCompile Include="src\ov_genai_tokenizer.cpp" />
     <ClCompile Include="src\ov_infer_request.cpp" />
