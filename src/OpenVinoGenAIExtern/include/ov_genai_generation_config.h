@@ -33,7 +33,7 @@ typedef struct ov_genai_generation_config ov_genai_generation_config_t;
  * @ingroup ov_genai_generation_config_c_api
  * @brief Structure to keep generation config parameters.
  */
-typedef struct generation_config_param 
+struct generation_config_param 
 {
     enum class StopCriteria { EARLY, HEURISTIC, NEVER };
     // Generic
