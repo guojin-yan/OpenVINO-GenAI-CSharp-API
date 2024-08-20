@@ -14,6 +14,7 @@
 #include "openvino/runtime/exception.hpp"
 #include "openvino/genai/generation_config.hpp"
 #include "openvino/genai/llm_pipeline.hpp"
+#include "openvino/genai/perf_metrics.hpp"
 #include "openvino/genai/streamer_base.hpp"
 #include "openvino/genai/tokenizer.hpp"
 #include "openvino/genai/visibility.hpp"
@@ -113,6 +114,27 @@ struct ov_genai_tokenized_inputs {
     std::shared_ptr<ov::genai::TokenizedInputs> object;
 };
 
+/**
+* @struct ov_genai_raw_perf_metrics
+* @brief  This is an interface of ov::genai::RawPerfMetrics.
+* Structure with raw performance metrics for each generation 
+* before any statistics calculated.
+*/
+struct ov_genai_raw_perf_metrics {
+    std::shared_ptr<ov::genai::RawPerfMetrics> object;
+};
+
+/**
+* @struct ov_genai_perf_metrics
+* @brief  This is an interface of ov::genai::PerfMetrics.
+* Structure to store performance metric for each generation.
+*/
+struct ov_genai_perf_metrics {
+    std::shared_ptr<ov::genai::PerfMetrics> object;
+};
+
+
+
 
 /**
  * @struct ov_string_array
@@ -130,6 +152,21 @@ typedef struct {
  * @return The converted string array.
 */
 std::vector<std::string> char_arrays_to_str_array(const ov_genai_char_arrays_t inputs_array);
+
+/**
+ * @brief Convert Time Point to nanosecond representation.
+ * @param timepoint The time point.
+ * @return The nanoseconds.
+*/
+size_t timepoint_to_nanoseconds(std::chrono::steady_clock::time_point timepoint);
+
+/**
+ * @brief Convert nanosecond to Time Point representation.
+ * @param nanoseconds The nanosecond.
+ * @return The Time Point.
+*/
+std::chrono::steady_clock::time_point nanoseconds_to_timepoint(size_t nanoseconds);
+
 
 /**
  * @struct mem_stringbuf

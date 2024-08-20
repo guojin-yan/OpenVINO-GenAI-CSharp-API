@@ -12,6 +12,18 @@ std::vector<std::string> char_arrays_to_str_array(const ov_genai_char_arrays_t i
     return strs;
 }
 
+size_t timepoint_to_nanoseconds(std::chrono::steady_clock::time_point timepoint) {
+    return std::chrono::duration_cast<std::chrono::nanoseconds>(timepoint.time_since_epoch()).count();
+}
+
+
+std::chrono::steady_clock::time_point nanoseconds_to_timepoint(size_t nanoseconds) {
+    return std::chrono::steady_clock::time_point(std::chrono::nanoseconds(nanoseconds));
+}
+
+
+
+
 char* str_to_char_array(const std::string& str) {
     std::unique_ptr<char> _char_array(new char[str.length() + 1]);
     char* char_array = _char_array.release();
