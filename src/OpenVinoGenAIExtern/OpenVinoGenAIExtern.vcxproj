@@ -148,6 +148,7 @@
     <ClInclude Include="include\ov_genai_encoded_results.h" />
     <ClInclude Include="include\ov_genai_generation_config.h" />
     <ClInclude Include="include\ov_genai_llm_pipeline.h" />
+    <ClInclude Include="include\ov_genai_perf_metrics.h" />
     <ClInclude Include="include\ov_genai_raw_perf_metrics.h" />
     <ClInclude Include="include\ov_genai_tokenized_inputs.h" />
     <ClInclude Include="include\ov_genai_tokenizer.h" />
