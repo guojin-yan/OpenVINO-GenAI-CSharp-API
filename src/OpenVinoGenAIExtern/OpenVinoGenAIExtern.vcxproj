@@ -163,6 +163,7 @@
     <ClCompile Include="src\ov_genai_encoded_results.cpp" />
     <ClCompile Include="src\ov_genai_generation_config.cpp" />
     <ClCompile Include="src\ov_genai_llm_pipeline.cpp" />
+    <ClCompile Include="src\ov_genai_perf_metrics.cpp" />
     <ClCompile Include="src\ov_genai_raw_perf_metrics.cpp" />
     <ClCompile Include="src\ov_genai_tokenized_inputs.cpp" />
     <ClCompile Include="src\ov_genai_tokenizer.cpp" />
