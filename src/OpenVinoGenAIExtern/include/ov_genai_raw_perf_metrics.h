@@ -40,257 +40,257 @@ typedef struct ov_genai_raw_perf_metrics ov_genai_raw_perf_metrics_t;
  */
 OPENVINO_C_API(ov_status_e)
 ov_genai_raw_perf_metrics_create(
-	ov_genai_raw_perf_metrics_t** perf_metrics);
+	ov_genai_raw_perf_metrics_t** raw_perf_metrics);
 
 /**
  * @brief Releases an OpenVINO RawPerfMetrics instance.
  * @ingroup ov_genai_raw_perf_metrics_c_api
- * @param perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance to be freed.
+ * @param raw_perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance to be freed.
  */
 OPENVINO_C_API(void)
 ov_genai_raw_perf_metrics_free(
-	ov_genai_raw_perf_metrics_t* perf_metrics);
+	ov_genai_raw_perf_metrics_t* raw_perf_metrics);
 
 /**
  * @brief Retrieves the generate durations from the RawPerfMetrics instance.
  * @ingroup ov_genai_raw_perf_metrics_c_api
- * @param perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
+ * @param raw_perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
  * @param micro_seconds A pointer to a buffer that will hold the microsecond durations.
  * @param length A pointer to the length of the microsecond durations array.
  * @return Status code of the operation: OK(0) for success.
  */
 OPENVINO_C_API(ov_status_e)
 ov_genai_raw_perf_metrics_get_generate_durations(
-	ov_genai_raw_perf_metrics_t* perf_metrics,
+	ov_genai_raw_perf_metrics_t* raw_perf_metrics,
 	float** micro_seconds,
 	size_t* length);
 
 /**
  * @brief Sets the generate durations in the RawPerfMetrics instance.
  * @ingroup ov_genai_raw_perf_metrics_c_api
- * @param perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
+ * @param raw_perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
  * @param micro_seconds A pointer to the array of microsecond durations to set.
  * @param length The length of the microsecond durations array.
  * @return Status code of the operation: OK(0) for success.
  */
 OPENVINO_C_API(ov_status_e)
 ov_genai_raw_perf_metrics_set_generate_durations(
-	ov_genai_raw_perf_metrics_t* perf_metrics,
+	ov_genai_raw_perf_metrics_t* raw_perf_metrics,
 	float* micro_seconds,
 	size_t length);
 
 /**
  * @brief Retrieves the tokenization durations from the RawPerfMetrics instance.
  * @ingroup ov_genai_raw_perf_metrics_c_api
- * @param perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
+ * @param raw_perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
  * @param tokenization_durations A pointer to a buffer that will hold the tokenization durations.
  * @param length A pointer to the length of the tokenization durations array.
  * @return Status code of the operation: OK(0) for success.
  */
 OPENVINO_C_API(ov_status_e)
 ov_genai_raw_perf_metrics_get_tokenization_durations(
-	ov_genai_raw_perf_metrics_t* perf_metrics,
+	ov_genai_raw_perf_metrics_t* raw_perf_metrics_t,
 	float** tokenization_durations,
 	size_t* length);
 
 /**
  * @brief Sets the tokenization durations in the RawPerfMetrics instance.
  * @ingroup ov_genai_raw_perf_metrics_c_api
- * @param perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
+ * @param raw_perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
  * @param tokenization_durations A pointer to the array of tokenization durations to set.
  * @param length The length of the tokenization durations array.
  * @return Status code of the operation: OK(0) for success.
  */
 OPENVINO_C_API(ov_status_e)
 ov_genai_raw_perf_metrics_set_tokenization_durations(
-	ov_genai_raw_perf_metrics_t* perf_metrics,
+	ov_genai_raw_perf_metrics_t* raw_perf_metrics_t,
 	float* tokenization_durations,
 	size_t length);
 
 /**
  * @brief Retrieves the detokenization durations from the RawPerfMetrics instance.
  * @ingroup ov_genai_raw_perf_metrics_c_api
- * @param perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
+ * @param raw_perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
  * @param detokenization_durations A pointer to a buffer that will hold the detokenization durations.
  * @param length A pointer to the length of the detokenization durations array.
  * @return Status code of the operation: OK(0) for success.
  */
 OPENVINO_C_API(ov_status_e)
 ov_genai_raw_perf_metrics_get_detokenization_durations(
-	ov_genai_raw_perf_metrics_t* perf_metrics,
+	ov_genai_raw_perf_metrics_t* raw_perf_metrics,
 	float** detokenization_durations,
 	size_t* length);
 
 /**
  * @brief Sets the detokenization durations in the RawPerfMetrics instance.
  * @ingroup ov_genai_raw_perf_metrics_c_api
- * @param perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
+ * @param raw_perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
  * @param detokenization_durations A pointer to the array of detokenization durations to set.
  * @param length The length of the detokenization durations array.
  * @return Status code of the operation: OK(0) for success.
  */
 OPENVINO_C_API(ov_status_e)
 ov_genai_raw_perf_metrics_set_detokenization_durations(
-	ov_genai_raw_perf_metrics_t* perf_metrics,
+	ov_genai_raw_perf_metrics_t* raw_perf_metrics,
 	float* detokenization_durations,
 	size_t length);
 
 /**
  * @brief Retrieves the times to the first token from the RawPerfMetrics instance.
  * @ingroup ov_genai_raw_perf_metrics_c_api
- * @param perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
+ * @param raw_perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
  * @param m_times_to_first_token A pointer to a buffer that will hold the times to first token.
  * @param length A pointer to the length of the times to first token array.
  * @return Status code of the operation: OK(0) for success.
  */
 OPENVINO_C_API(ov_status_e)
 ov_genai_raw_perf_metrics_get_m_times_to_first_token(
-	ov_genai_raw_perf_metrics_t* perf_metrics,
+	ov_genai_raw_perf_metrics_t* raw_perf_metrics,
 	float** m_times_to_first_token,
 	size_t* length);
 
 /**
  * @brief Sets the times to the first token in the RawPerfMetrics instance.
  * @ingroup ov_genai_raw_perf_metrics_c_api
- * @param perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
+ * @param raw_perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
  * @param m_times_to_first_token A pointer to the array of times to first token to set.
  * @param length The length of the times to first token array.
  * @return Status code of the operation: OK(0) for success.
  */
 OPENVINO_C_API(ov_status_e)
 ov_genai_raw_perf_metrics_set_m_times_to_first_token(
-	ov_genai_raw_perf_metrics_t* perf_metrics,
+	ov_genai_raw_perf_metrics_t* raw_perf_metrics,
 	float* m_times_to_first_token,
 	size_t length);
 
 /**
  * @brief Retrieves the new token times from the RawPerfMetrics instance.
  * @ingroup ov_genai_raw_perf_metrics_c_api
- * @param perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
+ * @param raw_perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
  * @param m_new_token_times A pointer to a buffer that will hold the new token times.
  * @param length A pointer to the length of the new token times array.
  * @return Status code of the operation: OK(0) for success.
  */
 OPENVINO_C_API(ov_status_e)
 ov_genai_raw_perf_metrics_get_m_new_token_times(
-	ov_genai_raw_perf_metrics_t* perf_metrics,
+	ov_genai_raw_perf_metrics_t* raw_perf_metrics,
 	size_t** m_new_token_times,
 	size_t* length);
 
 /**
  * @brief Sets the new token times in the RawPerfMetrics instance.
  * @ingroup ov_genai_raw_perf_metrics_c_api
- * @param perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
+ * @param raw_perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
  * @param m_new_token_times A pointer to the array of new token times to set.
  * @param length The length of the new token times array.
  * @return Status code of the operation: OK(0) for success.
  */
 OPENVINO_C_API(ov_status_e)
 ov_genai_raw_perf_metrics_set_m_new_token_times(
-	ov_genai_raw_perf_metrics_t* perf_metrics,
+	ov_genai_raw_perf_metrics_t* raw_perf_metrics,
 	size_t* m_new_token_times,
 	size_t length);
 
 /**
  * @brief Retrieves the batch sizes from the RawPerfMetrics instance.
  * @ingroup ov_genai_raw_perf_metrics_c_api
- * @param perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
+ * @param raw_perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
  * @param m_batch_sizes A pointer to a buffer that will hold the batch sizes.
  * @param length A pointer to the length of the batch sizes array.
  * @return Status code of the operation: OK(0) for success.
  */
 OPENVINO_C_API(ov_status_e)
 ov_genai_raw_perf_metrics_get_m_batch_sizes(
-	ov_genai_raw_perf_metrics_t* perf_metrics,
+	ov_genai_raw_perf_metrics_t* raw_perf_metrics,
 	size_t** m_batch_sizes,
 	size_t* length);
 
 /**
  * @brief Sets the batch sizes in the RawPerfMetrics instance.
  * @ingroup ov_genai_raw_perf_metrics_c_api
- * @param perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
+ * @param raw_perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
  * @param m_batch_sizes A pointer to the array of batch sizes to set.
  * @param length The length of the batch sizes array.
  * @return Status code of the operation: OK(0) for success.
  */
 OPENVINO_C_API(ov_status_e)
 ov_genai_raw_perf_metrics_set_m_batch_sizes(
-	ov_genai_raw_perf_metrics_t* perf_metrics,
+	ov_genai_raw_perf_metrics_t* raw_perf_metrics,
 	size_t* m_batch_sizes,
 	size_t length);
 
 /**
  * @brief Retrieves the durations from the RawPerfMetrics instance.
  * @ingroup ov_genai_raw_perf_metrics_c_api
- * @param perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
+ * @param raw_perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
  * @param m_durations A pointer to a buffer that will hold the durations.
  * @param length A pointer to the length of the durations array.
  * @return Status code of the operation: OK(0) for success.
  */
 OPENVINO_C_API(ov_status_e)
 ov_genai_raw_perf_metrics_get_m_durations(
-	ov_genai_raw_perf_metrics_t* perf_metrics,
+	ov_genai_raw_perf_metrics_t* raw_perf_metrics,
 	float** m_durations,
 	size_t* length);
 
 /**
  * @brief Sets the durations in the RawPerfMetrics instance.
  * @ingroup ov_genai_raw_perf_metrics_c_api
- * @param perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
+ * @param raw_perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
  * @param m_durations A pointer to the array of durations to set.
  * @param length The length of the durations array.
  * @return Status code of the operation: OK(0) for success.
  */
 OPENVINO_C_API(ov_status_e)
 ov_genai_raw_perf_metrics_set_m_durations(
-	ov_genai_raw_perf_metrics_t* perf_metrics,
+	ov_genai_raw_perf_metrics_t* raw_perf_metrics,
 	float* m_durations,
 	size_t length);
 
 /**
  * @brief Retrieves the number of generated tokens from the RawPerfMetrics instance.
  * @ingroup ov_genai_raw_perf_metrics_c_api
- * @param perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
+ * @param raw_perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
  * @param num_generated_tokens A pointer to the variable that will hold the number of generated tokens.
  * @return Status code of the operation: OK(0) for success.
  */
 OPENVINO_C_API(ov_status_e)
 ov_genai_raw_perf_metrics_get_num_generated_tokens(
-	ov_genai_raw_perf_metrics_t* perf_metrics,
+	ov_genai_raw_perf_metrics_t* raw_perf_metrics,
 	size_t* num_generated_tokens);
 
 /**
  * @brief Sets the number of generated tokens in the RawPerfMetrics instance.
  * @ingroup ov_genai_raw_perf_metrics_c_api
- * @param perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
+ * @param raw_perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
  * @param num_generated_tokens The variable holding the number of generated tokens to set.
  * @return Status code of the operation: OK(0) for success.
  */
 OPENVINO_C_API(ov_status_e)
 ov_genai_raw_perf_metrics_set_num_generated_tokens(
-	ov_genai_raw_perf_metrics_t* perf_metrics,
+	ov_genai_raw_perf_metrics_t* raw_perf_metrics,
 	size_t num_generated_tokens);
 
 /**
  * @brief Retrieves the number of input tokens from the RawPerfMetrics instance.
  * @ingroup ov_genai_raw_perf_metrics_c_api
- * @param perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
+ * @param raw_perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
  * @param num_input_tokens A pointer to the variable that will hold the number of input tokens.
  * @return Status code of the operation: OK(0) for success.
  */
 OPENVINO_C_API(ov_status_e)
 ov_genai_raw_perf_metrics_get_num_input_tokens(
-	ov_genai_raw_perf_metrics_t* perf_metrics,
+	ov_genai_raw_perf_metrics_t* raw_perf_metrics,
 	size_t* num_input_tokens);
 
 /**
  * @brief Sets the number of input tokens in the RawPerfMetrics instance.
  * @ingroup ov_genai_raw_perf_metrics_c_api
- * @param perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
+ * @param raw_perf_metrics A pointer to the ov_genai_raw_perf_metrics_t instance.
  * @param num_input_tokens The variable holding the number of input tokens to set.
  * @return Status code of the operation: OK(0) for success.
  */
 OPENVINO_C_API(ov_status_e)
 ov_genai_raw_perf_metrics_set_num_input_tokens(
-	ov_genai_raw_perf_metrics_t* perf_metrics,
+	ov_genai_raw_perf_metrics_t* raw_perf_metrics,
 	size_t num_input_tokens);
