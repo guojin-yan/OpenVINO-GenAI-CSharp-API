@@ -3,7 +3,7 @@
 //
 
 /**
-* @file ov_genai_raw_perf_metrics.h
+* @file ov_genai_perf_metrics.h
 * @brief This is a header file for the ov_genai_perf_metrics C API, which is a C wrapper for ov::genai::PerfMetrics.
 * @version 1.0
 * @author Yan Guojin guojin_yjs@cumt.edu.cn
@@ -129,4 +129,5 @@ ov_genai_evaluate_statistics(ov_genai_perf_metrics_t* perf_metrics);
 OPENVINO_C_API(ov_status_e)
 ov_genai_operator_add(
 	ov_genai_perf_metrics_t* perf_metrics,
+	ov_genai_perf_metrics_t* other_perf_metrics,
 	ov_genai_perf_metrics_t** new_perf_metrics);
