@@ -150,6 +150,7 @@
     <ClInclude Include="include\ov_genai_llm_pipeline.h" />
     <ClInclude Include="include\ov_genai_perf_metrics.h" />
     <ClInclude Include="include\ov_genai_raw_perf_metrics.h" />
+    <ClInclude Include="include\ov_genai_scheduler_config.h" />
     <ClInclude Include="include\ov_genai_tokenized_inputs.h" />
     <ClInclude Include="include\ov_genai_tokenizer.h" />
     <ClInclude Include="include\ov_infer_request.h" />
@@ -165,6 +166,7 @@
     <ClCompile Include="src\ov_genai_llm_pipeline.cpp" />
     <ClCompile Include="src\ov_genai_perf_metrics.cpp" />
     <ClCompile Include="src\ov_genai_raw_perf_metrics.cpp" />
+    <ClCompile Include="src\ov_genai_scheduler_config.cpp" />
     <ClCompile Include="src\ov_genai_tokenized_inputs.cpp" />
     <ClCompile Include="src\ov_genai_tokenizer.cpp" />
     <ClCompile Include="src\ov_infer_request.cpp" />

@@ -15,6 +15,7 @@
 #include "openvino/genai/generation_config.hpp"
 #include "openvino/genai/llm_pipeline.hpp"
 #include "openvino/genai/perf_metrics.hpp"
+#include "openvino/genai/scheduler_config.hpp"
 #include "openvino/genai/streamer_base.hpp"
 #include "openvino/genai/tokenizer.hpp"
 #include "openvino/genai/visibility.hpp"
@@ -133,7 +134,13 @@ struct ov_genai_perf_metrics {
     std::shared_ptr<ov::genai::PerfMetrics> object;
 };
 
-
+/**
+* @struct ov_genai_scheduler_config
+* @brief  This is an interface of ov::genai::SchedulerConfig.
+*/
+struct ov_genai_scheduler_config {
+    std::shared_ptr<ov::genai::SchedulerConfig> object;
+};
 
 
 /**
