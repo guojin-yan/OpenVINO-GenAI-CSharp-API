@@ -12,6 +12,25 @@ std::vector<std::string> char_arrays_to_str_array(const ov_genai_char_arrays_t i
     return strs;
 }
 
+
+ov_genai_double_int_arrays_t int_vectors_to__double_int_arrays(std::vector<std::vector<int64_t>> data) {
+    ov_genai_double_int_arrays_t arrays;
+    arrays.size = data.size();
+    arrays.arrays_size = new int64_t(arrays.size);
+    int64_t length = 0;
+    for (int i = 0; i < arrays.size; ++i) {
+        arrays.arrays_size[i] = data[i].size();
+        length += data[i].size();
+    }
+    arrays.arrays = new int64_t(length);
+    int64_t tmp = 0;
+    for (int i = 0; i < arrays.size; ++i) {
+        std::copy(data[i].begin(), data[i].end(), arrays.arrays + tmp);
+        tmp += data[i].size();
+    }
+    return arrays;
+}
+
 size_t timepoint_to_nanoseconds(std::chrono::steady_clock::time_point timepoint) {
     return std::chrono::duration_cast<std::chrono::nanoseconds>(timepoint.time_since_epoch()).count();
 }

@@ -12,6 +12,7 @@
 #include "openvino/core/except.hpp"
 #include "openvino/openvino.hpp"
 #include "openvino/runtime/exception.hpp"
+#include "openvino/genai/continuous_batching_pipeline.hpp"
 #include "openvino/genai/generation_config.hpp"
 #include "openvino/genai/llm_pipeline.hpp"
 #include "openvino/genai/perf_metrics.hpp"
@@ -144,6 +145,59 @@ struct ov_genai_scheduler_config {
 
 
 /**
+* @struct ov_genai_continuous_batching_pipeline
+* @brief  This is an interface of ov::genai::SchedulerConfig.
+*/
+struct ov_genai_continuous_batching_pipeline {
+    std::shared_ptr<ov::genai::ContinuousBatchingPipeline> object;
+};
+
+
+/**
+* @struct ov_genai_encoded_generation_result
+* @brief  This is an interface of ov::genai::EncodedGenerationResult.
+*/
+struct ov_genai_encoded_generation_result {
+    std::shared_ptr<ov::genai::EncodedGenerationResult> object;
+};
+
+
+/**
+* @struct ov_genai_generation_result
+* @brief  This is an interface of ov::genai::GenerationResult.
+*/
+struct ov_genai_generation_result {
+    std::shared_ptr<ov::genai::GenerationResult> object;
+};
+
+/**
+* @struct ov_genai_generation_output
+* @brief  This is an interface of ov::genai::GenerationOutput.
+*/
+struct ov_genai_generation_output {
+    std::shared_ptr<ov::genai::GenerationOutput> object;
+};
+
+/**
+* @struct ov_genai_generation_outputs
+* @brief  This is an interface of ov::genai::GenerationOutputs.
+*/
+struct ov_genai_generation_outputs {
+    std::shared_ptr<ov::genai::GenerationOutputs> object;
+};
+
+
+/**
+* @struct ov_genai_generation_handle
+* @brief  This is an interface of ov::genai::GenerationHandleImpl.
+*/
+struct ov_genai_generation_handle {
+    std::shared_ptr<ov::genai::GenerationHandleImpl> object;
+};
+
+
+
+/**
  * @struct ov_string_array
  * @ingroup ov_genai_llm_pipeline_c_api
  * @brief String array structure.
@@ -153,12 +207,27 @@ typedef struct {
     size_t size;
 } ov_genai_char_arrays_t;
 
+
 /**
  * @brief Convert character array structure to string array.
  * @param char_arrays The character array structure.
  * @return The converted string array.
 */
 std::vector<std::string> char_arrays_to_str_array(const ov_genai_char_arrays_t inputs_array);
+
+
+/**
+ * @struct ov_int_arrays
+ * @ingroup ov_genai_llm_pipeline_c_api
+ * @brief std::vector<std::vector<int64_t>>.
+ */
+typedef struct {
+    int64_t size;
+    int64_t* arrays_size;
+    int64_t* arrays;
+} ov_genai_double_int_arrays_t;
+
+ov_genai_double_int_arrays_t int_vectors_to__double_int_arrays(std::vector<std::vector<int64_t>> data);
 
 /**
  * @brief Convert Time Point to nanosecond representation.

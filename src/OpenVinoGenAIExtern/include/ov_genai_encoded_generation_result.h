@@ -24,7 +24,7 @@ typedef struct ov_genai_encoded_generation_result ov_genai_encoded_generation_re
 
 
 
-void
+OPENVINO_C_API(void)
 ov_genai_encoded_generation_result_free(
 	ov_genai_encoded_generation_result_t* encoded_generation_result);
 

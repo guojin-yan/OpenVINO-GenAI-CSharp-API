@@ -76,7 +76,7 @@
     <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)src/$(ProjectName)/include/;$(OPENVINO_PATH)/include;$(OPENVINO_PATH)/include/openvino;$(OPENVINO_PATH)/include/openvino/genai;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)src/$(ProjectName)/src/;$(SolutionDir)src/$(ProjectName)/include/;$(OPENVINO_PATH)/include;$(OPENVINO_PATH)/include/openvino;$(OPENVINO_PATH)/include/openvino/genai;$(IncludePath)</IncludePath>
     <TargetName>openvino_genai_c</TargetName>
     <LibraryPath>$(OPENVINO_PATH)\lib\intel64\Release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
@@ -143,10 +143,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\ov_genai_continuous_batching_pipeline.h" />
     <ClInclude Include="include\ov_genai_decoded_results.h" />
     <ClInclude Include="include\ov_genai_common.h" />
+    <ClInclude Include="include\ov_genai_encoded_generation_result.h" />
     <ClInclude Include="include\ov_genai_encoded_results.h" />
     <ClInclude Include="include\ov_genai_generation_config.h" />
+    <ClInclude Include="include\ov_genai_generation_handle.h" />
+    <ClInclude Include="include\ov_genai_generation_outputs.h" />
+    <ClInclude Include="include\ov_genai_generation_result.h" />
     <ClInclude Include="include\ov_genai_llm_pipeline.h" />
     <ClInclude Include="include\ov_genai_perf_metrics.h" />
     <ClInclude Include="include\ov_genai_raw_perf_metrics.h" />
@@ -161,8 +166,12 @@
     <ClCompile Include="src\ov_genai_decoded_results.cpp" />
     <ClCompile Include="src\genai_common.cpp" />
     <ClCompile Include="src\ov_genai_common.cpp" />
+    <ClCompile Include="src\ov_genai_encoded_generation_result.cpp" />
     <ClCompile Include="src\ov_genai_encoded_results.cpp" />
     <ClCompile Include="src\ov_genai_generation_config.cpp" />
+    <ClCompile Include="src\ov_genai_generation_handle.cpp" />
+    <ClCompile Include="src\ov_genai_generation_outputs.cpp" />
+    <ClCompile Include="src\ov_genai_generation_result.cpp" />
     <ClCompile Include="src\ov_genai_llm_pipeline.cpp" />
     <ClCompile Include="src\ov_genai_perf_metrics.cpp" />
     <ClCompile Include="src\ov_genai_raw_perf_metrics.cpp" />

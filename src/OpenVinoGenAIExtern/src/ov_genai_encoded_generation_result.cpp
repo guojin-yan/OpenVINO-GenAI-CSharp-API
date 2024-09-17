@@ -58,16 +58,16 @@ ov_genai_encoded_generation_result_get_generation_ids(
 ov_status_e
 ov_genai_encoded_generation_result_get_scores(
 	ov_genai_encoded_generation_result_t* encoded_generation_result,
-	float* request_id,
-	size_t* scores) {
+	float* scores,
+	size_t* size) {
 
-	if (!encoded_generation_result || !request_id || !scores) {
+	if (!encoded_generation_result || !scores || !size) {
 		return ov_status_e::INVALID_C_PARAM;
 	}
 	try {
 		auto tmp = encoded_generation_result->object->m_scores;
-		*scores = tmp.size();
-		std::copy(tmp.begin(), tmp.end(), request_id);
+		*size = tmp.size();
+		std::copy(tmp.begin(), tmp.end(), scores);
 	}
 	CATCH_OV_GENAI_EXCEPTIONS
 		return ov_status_e::OK;
