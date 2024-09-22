@@ -32,7 +32,7 @@
 typedef struct ov_genai_llm_pipeline ov_genai_llm_pipeline_t;
 
 
-typedef bool(__stdcall* ov_genai_streamer_callback_t)(std::string str);
+
 
 
 

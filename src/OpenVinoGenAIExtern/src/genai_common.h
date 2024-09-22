@@ -195,7 +195,7 @@ struct ov_genai_generation_handle {
     std::shared_ptr<ov::genai::GenerationHandleImpl> object;
 };
 
-
+typedef bool(__stdcall* ov_genai_streamer_callback_t)(std::string str);
 
 /**
  * @struct ov_string_array
