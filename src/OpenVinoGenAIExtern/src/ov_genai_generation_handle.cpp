@@ -57,6 +57,19 @@ ov_genai_generation_handle_can_read(
 		return ov_status_e::OK;
 }
 
+OPENVINO_C_API(ov_status_e)
+ov_genai_generation_handle_drop(
+	ov_genai_generation_handle_t* generation_handle) {
+
+	if (!generation_handle) {
+		return ov_status_e::INVALID_C_PARAM;
+	}
+	try {
+		generation_handle->object->drop();
+	}
+	CATCH_OV_GENAI_EXCEPTIONS
+		return ov_status_e::OK;
+}
 
 ov_status_e
 ov_genai_generation_handle_back(

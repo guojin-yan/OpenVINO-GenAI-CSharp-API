@@ -36,15 +36,27 @@ ov_genai_generation_output_free(
 	ov_genai_generation_output_t* generation_output);
 
 OPENVINO_C_API(ov_status_e)
-ov_genai_generation_output_get_generated_token_ids(
+ov_genai_generation_output_get_generated_ids(
 	ov_genai_generation_output_t* generation_output,
-	int64_t* generated_token_ids,
+	int64_t* generated_ids,
 	size_t* size);
 
 OPENVINO_C_API(ov_status_e)
 ov_genai_generation_output_get_score(
 	ov_genai_generation_output_t* generation_output,
 	float* score);
+
+OPENVINO_C_API(ov_status_e)
+ov_genai_generation_output_get_generated_log_probs(
+	ov_genai_generation_output_t* generation_output,
+	float* generated_log_probs,
+	size_t* size);
+
+
+OPENVINO_C_API(ov_status_e)
+ov_genai_generation_output_get_finish_reason(
+	ov_genai_generation_output_t* generation_output,
+	int* finish_reason);
 
 OPENVINO_C_API(void)
 ov_genai_generation_outputs_free(

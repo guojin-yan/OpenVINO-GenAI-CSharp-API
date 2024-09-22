@@ -26,18 +26,18 @@ ov_genai_generation_output_free(
 }
 
 OPENVINO_C_API(ov_status_e)
-ov_genai_generation_output_get_generated_token_ids(
+ov_genai_generation_output_get_generated_ids(
 	ov_genai_generation_output_t* generation_output,
-	int64_t* generated_token_ids,
+	int64_t* generated_ids,
 	size_t* size) {
 
-	if (!generation_output || !generated_token_ids || !size) {
+	if (!generation_output || !generated_ids || !size) {
 		return ov_status_e::INVALID_C_PARAM;
 	}
 	try {
-		auto tmp = generation_output->object->generated_token_ids;
+		auto tmp = generation_output->object->generated_ids;
 		*size = tmp.size();
-		std::copy(tmp.begin(), tmp.end(), generated_token_ids);
+		std::copy(tmp.begin(), tmp.end(), generated_ids);
 	}
 	CATCH_OV_GENAI_EXCEPTIONS
 		return ov_status_e::OK;
@@ -53,6 +53,40 @@ ov_genai_generation_output_get_score(
 	}
 	try {
 		*score = generation_output->object->score;
+	}
+	CATCH_OV_GENAI_EXCEPTIONS
+		return ov_status_e::OK;
+}
+
+
+ov_status_e
+ov_genai_generation_output_get_generated_log_probs(
+	ov_genai_generation_output_t* generation_output,
+	float* generated_log_probs,
+	size_t* size) {
+	if (!generation_output || !generated_log_probs || !size) {
+		return ov_status_e::INVALID_C_PARAM;
+	}
+	try {
+		auto tmp = generation_output->object->generated_log_probs;
+		*size = tmp.size();
+		std::copy(tmp.begin(), tmp.end(), generated_log_probs);
+	}
+	CATCH_OV_GENAI_EXCEPTIONS
+		return ov_status_e::OK;
+}
+
+
+ov_status_e
+ov_genai_generation_output_get_finish_reason(
+	ov_genai_generation_output_t* generation_output,
+	int* finish_reason) {
+	if (!generation_output || !finish_reason) {
+		return ov_status_e::INVALID_C_PARAM;
+	}
+	try {
+		auto tmp = generation_output->object->finish_reason;
+		*finish_reason = static_cast<int>(tmp);
 	}
 	CATCH_OV_GENAI_EXCEPTIONS
 		return ov_status_e::OK;

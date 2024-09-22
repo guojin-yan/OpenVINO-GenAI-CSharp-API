@@ -40,6 +40,9 @@ ov_genai_generation_handle_can_read(
 	ov_genai_generation_handle_t* generation_handle,
 	int* can_read);
 
+OPENVINO_C_API(ov_status_e)
+ov_genai_generation_handle_drop(
+	ov_genai_generation_handle_t* generation_handle);
 
 OPENVINO_C_API(ov_status_e)
 ov_genai_generation_handle_back(
