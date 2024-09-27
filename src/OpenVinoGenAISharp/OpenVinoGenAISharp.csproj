@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;net7.0;net6.0;net5.0;netcoreapp3.1;net46;net461;net462;net47;net471;net472;net48;net481</TargetFrameworks>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <RootNamespace>OpenVinoSharp.GenAI</RootNamespace>
+  </PropertyGroup>
+
+
+  <!--Add build file.-->
+
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net48'">
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+  </ItemGroup>
+
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net48'">
+    <DefineConstants>$(DefineConstants);DOTNET_FRAMEWORK;</DefineConstants>
+  </PropertyGroup>
+
+
+</Project>
