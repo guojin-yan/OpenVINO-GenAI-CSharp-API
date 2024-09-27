@@ -163,6 +163,7 @@
     <ClInclude Include="src\genai_common.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\ov_genai_continuous_batching_pipeline.cpp" />
     <ClCompile Include="src\ov_genai_decoded_results.cpp" />
     <ClCompile Include="src\genai_common.cpp" />
     <ClCompile Include="src\ov_genai_common.cpp" />

@@ -122,5 +122,8 @@
     <ClCompile Include="src\ov_genai_generation_handle.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\ov_genai_continuous_batching_pipeline.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
