@@ -19,6 +19,10 @@
 
 
 
+int ov_genai_llm_sizeof()
+{
+	return sizeof(ov::genai::LLMPipeline);
+}
 
 
 ov_status_e ov_genai_llm_pipeline_create_with_model_path(

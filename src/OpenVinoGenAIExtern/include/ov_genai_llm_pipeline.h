@@ -33,7 +33,7 @@ typedef struct ov_genai_llm_pipeline ov_genai_llm_pipeline_t;
 
 
 
-
+OPENVINO_C_API(int) ov_genai_llm_sizeof();
 
 
 /**
