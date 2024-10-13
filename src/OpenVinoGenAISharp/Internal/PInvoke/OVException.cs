@@ -12,30 +12,46 @@ namespace OpenVinoSharp.GenAI.Internal
     /// </summary>
     [Serializable]
     // ReSharper disable once InconsistentNaming
-    internal class OVException : Exception
+    public class OVException : Exception
     {
         /// <summary>
         /// The numeric code for error status
         /// </summary>
-        public ExceptionStatus status { get; set; }
+        public ExceptionStatus Status { get; set; }
 
 
         /// <summary>
         /// A description of the error
         /// </summary>
-        public string err_msg { get; set; }
+        public string ErrMsg { get; set; }
 
+
+
+        /// <inheritdoc />
+        /// <param name="message"></param>
+        public OVException(string message)
+            : base(message)
+        {
+        }
+
+        /// <inheritdoc />
+        /// <param name="message"></param>
+        /// <param name="innerException"></param>
+        public OVException(string message, Exception innerException)
+            : base(message, innerException)
+        {
+        }
 
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="status">The numeric code for error status</param>
-        /// <param name="err_msg">A description of the error</param>
-        public OVException(ExceptionStatus status, string err_msg)
-            : base(err_msg)
+        /// <param name="errMsg">A description of the error</param>
+        public OVException(ExceptionStatus status, string errMsg)
+            : base(errMsg)
         {
-            this.status = status;
-            this.err_msg = err_msg;
+            this.Status = status;
+            this.ErrMsg = errMsg;
         }
 
     }
