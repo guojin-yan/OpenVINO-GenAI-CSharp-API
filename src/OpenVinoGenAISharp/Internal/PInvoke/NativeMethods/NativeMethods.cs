@@ -32,7 +32,7 @@ namespace OpenVinoSharp.GenAI.Internal
     /// </summary>
     public static partial class NativeMethods
     {
-        private const string dll_extern = "openvino_genai_c";
+        private const string dllExtern = "openvino_genai_c";
 
 
 
@@ -100,7 +100,7 @@ namespace OpenVinoSharp.GenAI.Internal
             var ap = (additionalPaths is null) ? Array.Empty<string>() : additionalPaths.ToArray();
 
 
-            WindowsLibraryLoader.Instance.LoadLibrary(dll_extern, ap);
+            WindowsLibraryLoader.Instance.LoadLibrary(dllExtern, ap);
 
 
         }
