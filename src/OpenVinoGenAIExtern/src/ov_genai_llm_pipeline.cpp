@@ -151,7 +151,7 @@ ov_status_e ov_genai_llm_pipeline_generate_string(
 
 ov_status_e ov_genai_llm_pipeline_generate_strings(
 	ov_genai_llm_pipeline_t* llm_pipeline,
-	const ov_genai_char_arrays_t inputs_array,
+	const ov_genai_char_arrays_t* inputs_array,
 	ov_genai_decoded_results_t** decoded_results){
 
 	if (!llm_pipeline || !decoded_results) {
@@ -160,7 +160,7 @@ ov_status_e ov_genai_llm_pipeline_generate_strings(
 
 	try {
 		ov::genai::DecodedResults object;
-		object = llm_pipeline->object->generate(char_arrays_to_str_array(inputs_array));
+		object = llm_pipeline->object->generate(char_arrays_to_str_array(*inputs_array));
 		std::unique_ptr<ov_genai_decoded_results_t> _decoded_results(new ov_genai_decoded_results_t);
 		_decoded_results->object = std::make_shared<ov::genai::DecodedResults>(std::move(object));
 		*decoded_results = _decoded_results.release();
@@ -196,7 +196,7 @@ ov_status_e ov_genai_llm_pipeline_generate_string_with_config(
 
 ov_status_e ov_genai_llm_pipeline_generate_strings_with_config(
 	ov_genai_llm_pipeline_t* llm_pipeline,
-	const ov_genai_char_arrays_t inputs_array,
+	const ov_genai_char_arrays_t* inputs_array,
 	const ov_genai_generation_config_t* generation_config,
 	ov_genai_decoded_results_t** decoded_results){
 
@@ -206,7 +206,7 @@ ov_status_e ov_genai_llm_pipeline_generate_strings_with_config(
 
 	try {
 		ov::genai::DecodedResults object;
-		object = llm_pipeline->object->generate(char_arrays_to_str_array(inputs_array), *generation_config->object);
+		object = llm_pipeline->object->generate(char_arrays_to_str_array(*inputs_array), *generation_config->object);
 		std::unique_ptr<ov_genai_decoded_results_t> _decoded_results(new ov_genai_decoded_results_t);
 		_decoded_results->object = std::make_shared<ov::genai::DecodedResults>(std::move(object));
 		*decoded_results = _decoded_results.release();
@@ -242,7 +242,7 @@ ov_status_e ov_genai_llm_pipeline_generate_string_with_function(
 
 ov_status_e ov_genai_llm_pipeline_generate_strings_with_function(
 	ov_genai_llm_pipeline_t* llm_pipeline,
-	const ov_genai_char_arrays_t inputs_array,
+	const ov_genai_char_arrays_t* inputs_array,
 	ov_genai_streamer_callback_t* callback,
 	ov_genai_decoded_results_t** decoded_results){
 
@@ -252,7 +252,7 @@ ov_status_e ov_genai_llm_pipeline_generate_strings_with_function(
 
 	try {
 		ov::genai::DecodedResults object;
-		object = llm_pipeline->object->generate(char_arrays_to_str_array(inputs_array), std::nullopt, *callback);
+		object = llm_pipeline->object->generate(char_arrays_to_str_array(*inputs_array), std::nullopt, *callback);
 		std::unique_ptr<ov_genai_decoded_results_t> _decoded_results(new ov_genai_decoded_results_t);
 		_decoded_results->object = std::make_shared<ov::genai::DecodedResults>(std::move(object));
 		*decoded_results = _decoded_results.release();
@@ -289,7 +289,7 @@ ov_status_e ov_genai_llm_pipeline_generate_string_with_config_function(
 
 ov_status_e ov_genai_llm_pipeline_generate_strings_with_config_function(
 	ov_genai_llm_pipeline_t* llm_pipeline,
-	const ov_genai_char_arrays_t inputs_array,
+	const ov_genai_char_arrays_t* inputs_array,
 	const ov_genai_generation_config_t* generation_config,
 	ov_genai_streamer_callback_t* callback,
 	ov_genai_decoded_results_t** decoded_results){
@@ -300,7 +300,7 @@ ov_status_e ov_genai_llm_pipeline_generate_strings_with_config_function(
 
 	try {
 		ov::genai::DecodedResults object;
-		object = llm_pipeline->object->generate(char_arrays_to_str_array(inputs_array), *generation_config->object, *callback);
+		object = llm_pipeline->object->generate(char_arrays_to_str_array(*inputs_array), *generation_config->object, *callback);
 		std::unique_ptr<ov_genai_decoded_results_t> _decoded_results(new ov_genai_decoded_results_t);
 		_decoded_results->object = std::make_shared<ov::genai::DecodedResults>(std::move(object));
 		*decoded_results = _decoded_results.release();
@@ -336,7 +336,7 @@ ov_status_e ov_genai_llm_pipeline_generate_string_with_config_map(
 
 ov_status_e ov_genai_llm_pipeline_generate_strings_with_config_map(
 	ov_genai_llm_pipeline_t* llm_pipeline,
-	const ov_genai_char_arrays_t inputs_array,
+	const ov_genai_char_arrays_t* inputs_array,
 	const generation_config_param_t config_param,
 	ov_genai_decoded_results_t** decoded_results){
 
@@ -346,7 +346,7 @@ ov_status_e ov_genai_llm_pipeline_generate_strings_with_config_map(
 
 	try {
 		ov::genai::DecodedResults object;
-		object = llm_pipeline->object->generate(char_arrays_to_str_array(inputs_array), generation_config_param_to_anymap(config_param));
+		object = llm_pipeline->object->generate(char_arrays_to_str_array(*inputs_array), generation_config_param_to_anymap(config_param));
 		std::unique_ptr<ov_genai_decoded_results_t> _decoded_results(new ov_genai_decoded_results_t);
 		_decoded_results->object = std::make_shared<ov::genai::DecodedResults>(std::move(object));
 		*decoded_results = _decoded_results.release();

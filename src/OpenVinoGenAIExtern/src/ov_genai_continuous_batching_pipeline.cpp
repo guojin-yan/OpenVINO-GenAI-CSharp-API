@@ -428,7 +428,7 @@ ov_genai_continuous_batching_pipeline_generate_with_input_ids_and_streamer(
 ov_status_e
 ov_genai_continuous_batching_pipeline_generate_with_prompts(
     ov_genai_continuous_batching_pipeline_t* continuous_batching_pipeline,
-    const ov_genai_char_arrays_t inputs_array,
+    const ov_genai_char_arrays_t* inputs_array,
     const  ov_genai_generation_config_t* sampling_params,
     size_t sampling_params_size,
     ov_genai_generation_result_t** generation_results,
@@ -441,7 +441,7 @@ ov_genai_continuous_batching_pipeline_generate_with_prompts(
 
     try {
 
-        std::vector<std::string> prompts = char_arrays_to_str_array(inputs_array);
+        std::vector<std::string> prompts = char_arrays_to_str_array(*inputs_array);
         std::vector<ov::genai::GenerationConfig> v_sampling_params;
         for (int i = 0; i < sampling_params_size; ++i) {
             v_sampling_params.push_back(*sampling_params[i].object);
@@ -465,7 +465,7 @@ ov_genai_continuous_batching_pipeline_generate_with_prompts(
 ov_status_e
 ov_genai_continuous_batching_pipeline_generate_with_prompts_and_streamer(
     ov_genai_continuous_batching_pipeline_t* continuous_batching_pipeline,
-    const ov_genai_char_arrays_t inputs_array,
+    const ov_genai_char_arrays_t* inputs_array,
     const ov_genai_generation_config_t* sampling_params,
     size_t sampling_params_size,
     ov_genai_streamer_callback_t* callback,
@@ -479,7 +479,7 @@ ov_genai_continuous_batching_pipeline_generate_with_prompts_and_streamer(
 
     try {
 
-        std::vector<std::string> prompts = char_arrays_to_str_array(inputs_array);
+        std::vector<std::string> prompts = char_arrays_to_str_array(*inputs_array);
         std::vector<ov::genai::GenerationConfig> v_sampling_params;
         for (int i = 0; i < sampling_params_size; ++i) {
             v_sampling_params.push_back(*sampling_params[i].object);

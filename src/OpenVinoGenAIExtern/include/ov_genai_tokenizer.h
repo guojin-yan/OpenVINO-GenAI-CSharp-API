@@ -78,7 +78,7 @@ ov_genai_tokenizer_encode_string(ov_genai_tokenizer_t* tokenizer,
  */
 OPENVINO_C_API(ov_status_e)
 ov_genai_tokenizer_encode_strings(ov_genai_tokenizer_t* tokenizer,
-	const ov_genai_char_arrays_t prompt, 
+	const ov_genai_char_arrays_t* prompt, 
 	ov_genai_tokenized_inputs_t** tokenized_inputs);
 
 /**

@@ -136,7 +136,7 @@ ov_genai_llm_pipeline_generate_string(
 OPENVINO_C_API(ov_status_e)
 ov_genai_llm_pipeline_generate_strings(
 	ov_genai_llm_pipeline_t* llm_pipeline,
-	const ov_genai_char_arrays_t inputs_array,
+	const ov_genai_char_arrays_t* inputs_array,
 	ov_genai_decoded_results_t** decoded_results
 );
 
@@ -169,7 +169,7 @@ ov_genai_llm_pipeline_generate_string_with_config(
 OPENVINO_C_API(ov_status_e)
 ov_genai_llm_pipeline_generate_strings_with_config(
 	ov_genai_llm_pipeline_t* llm_pipeline,
-	const ov_genai_char_arrays_t inputs_array,
+	const ov_genai_char_arrays_t* inputs_array,
 	const ov_genai_generation_config_t* generation_config,
 	ov_genai_decoded_results_t** decoded_results
 );
@@ -203,7 +203,7 @@ ov_genai_llm_pipeline_generate_string_with_function(
 OPENVINO_C_API(ov_status_e)
 ov_genai_llm_pipeline_generate_strings_with_function(
 	ov_genai_llm_pipeline_t* llm_pipeline,
-	const ov_genai_char_arrays_t inputs_array,
+	const ov_genai_char_arrays_t* inputs_array,
 	ov_genai_streamer_callback_t* callback,
 	ov_genai_decoded_results_t** decoded_results
 );
@@ -240,7 +240,7 @@ ov_genai_llm_pipeline_generate_string_with_config_function(
 OPENVINO_C_API(ov_status_e)
 ov_genai_llm_pipeline_generate_strings_with_config_function(
 	ov_genai_llm_pipeline_t* llm_pipeline,
-	const ov_genai_char_arrays_t inputs_array,
+	const ov_genai_char_arrays_t* inputs_array,
 	const ov_genai_generation_config_t* generation_config,
 	ov_genai_streamer_callback_t* callback,
 	ov_genai_decoded_results_t** decoded_results
@@ -275,7 +275,7 @@ ov_genai_llm_pipeline_generate_string_with_config_map(
 OPENVINO_C_API(ov_status_e)
 ov_genai_llm_pipeline_generate_strings_with_config_map(
 	ov_genai_llm_pipeline_t* llm_pipeline,
-	const ov_genai_char_arrays_t inputs_array,
+	const ov_genai_char_arrays_t* inputs_array,
 	const generation_config_param_t config_param,
 	ov_genai_decoded_results_t** decoded_results
 );

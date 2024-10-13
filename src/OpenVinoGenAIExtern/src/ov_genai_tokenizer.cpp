@@ -72,7 +72,7 @@ ov_status_e ov_genai_tokenizer_encode_string(ov_genai_tokenizer_t* tokenizer,
 
 
 ov_status_e ov_genai_tokenizer_encode_strings(ov_genai_tokenizer_t* tokenizer,
-	const ov_genai_char_arrays_t prompt,
+	const ov_genai_char_arrays_t* prompt,
 	ov_genai_tokenized_inputs_t** tokenized_inputs){
 	if (!tokenizer || !tokenized_inputs) {
 		return ov_status_e::INVALID_C_PARAM;
@@ -80,7 +80,7 @@ ov_status_e ov_genai_tokenizer_encode_strings(ov_genai_tokenizer_t* tokenizer,
 
 	try {
 		ov::genai::TokenizedInputs object;
-		object = tokenizer->object->encode(char_arrays_to_str_array(prompt));
+		object = tokenizer->object->encode(char_arrays_to_str_array(*prompt));
 		std::unique_ptr<ov_genai_tokenized_inputs_t> _tokenized_inputs(new ov_genai_tokenized_inputs_t);
 		_tokenized_inputs->object = std::make_shared<ov::genai::TokenizedInputs>(std::move(object));
 		*tokenized_inputs = _tokenized_inputs.release();
