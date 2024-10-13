@@ -7,7 +7,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DC54A475-3B3
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpenVinoGenAIExtern", "src\OpenVinoGenAIExtern\OpenVinoGenAIExtern.vcxproj", "{8E79B724-569B-4939-8469-18833B9F0EBA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenVinoGenAISharp", "src\OpenVinoGenAISharp\OpenVinoGenAISharp.csproj", "{458A9E85-E61C-48C9-941E-0B38515A44AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenVinoGenAISharp", "src\OpenVinoGenAISharp\OpenVinoGenAISharp.csproj", "{458A9E85-E61C-48C9-941E-0B38515A44AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{5624D1ED-F53D-4330-A4CB-3218E5BA9597}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
