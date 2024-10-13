@@ -24,6 +24,7 @@
 
 
   <ItemGroup>
+    <Folder Include="Internal\PInvoke\Struct\" />
     <Folder Include="Modules\" />
   </ItemGroup>
 

@@ -12,7 +12,7 @@ namespace OpenVinoSharp.GenAI.Internal
         /// </summary>
         /// <param name="status">a status code.</param>
         /// <returns>error info.</returns>
-        [Pure, DllImport(dll_extern, EntryPoint = "ov_genai_get_error_info",
+        [Pure, DllImport(dllExtern, EntryPoint = "ov_genai_get_error_info",
             CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public extern static IntPtr ov_genai_get_error_info(int status);
 
@@ -20,7 +20,7 @@ namespace OpenVinoSharp.GenAI.Internal
         /// free char
         /// </summary>
         /// <param name="content">The pointer to the char to free.</param>
-        [Pure, DllImport(dll_extern, EntryPoint = "ov_genai_free",
+        [Pure, DllImport(dllExtern, EntryPoint = "ov_genai_free",
             CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public extern static void ov_genai_free(ref char content);
 
@@ -29,7 +29,7 @@ namespace OpenVinoSharp.GenAI.Internal
         /// Get the last error msg.
         /// </summary>
         /// <returns>The last error msg.</returns>
-        [Pure, DllImport(dll_extern, EntryPoint = "ov_genai_get_last_err_msg",
+        [Pure, DllImport(dllExtern, EntryPoint = "ov_genai_get_last_err_msg",
             CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public extern static IntPtr ov_genai_get_last_err_msg();
     }
